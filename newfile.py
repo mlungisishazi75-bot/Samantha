@@ -4,8 +4,7 @@ import random
 import asyncio
 import os
 
-TOKEN = """PASTE_YOUR_TOKEN_HERE"""
-TOKEN = TOKEN.replace("\n", "").replace(" ", "").strip()
+TOKEN = os.getenv("DISCORD_TOKEN")
 
 intents = discord.Intents.default()
 intents.message_content = True
