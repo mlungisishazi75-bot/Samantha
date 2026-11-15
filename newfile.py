@@ -3,6 +3,18 @@ from discord.ext import commands
 import random
 import asyncio
 import os
+from flask import Flask
+from threading import Thread
+
+app = Flask('')
+@app.route('/')
+def home():
+    return "Samantha is online!"
+
+def run_web():
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 10000)))
+
+Thread(target=run_web, daemon=True).start()
 
 TOKEN = os.getenv("DISCORD_TOKEN")
 
